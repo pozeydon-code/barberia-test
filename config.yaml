@@ -1,0 +1,1 @@
+DB_URL: "postgres://barberia_user:barberia_pass@localhost:5432/barberia-db?sslmode=disable"

@@ -1,0 +1,46 @@
+# version: "3.8"
+#
+# services:
+#   db:
+#     image: postgres:15
+#     container_name: barberia-db
+#     # env_file:
+#     #   - .env
+#     # ports:
+#     #   - "${POSTGRES_PORT}:5432"
+#     environment:
+#       POSTGRES_USER: barberia
+#       POSTGRES_PASSWORD: secret123
+#       POSTGRES_DB: barberia
+#     ports:
+#       - "5432:5432"
+#     volumes:
+#       - db_data:/var/lib/postgresql/data
+#       - ./docker/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+#     networks:
+#       - barberia-network
+#
+# volumes:
+#   db_data:
+#
+# networks:
+#   barberia-network:
+#     driver: bridge
+
+version: "3.8"
+
+services:
+  db:
+    image: postgres:latest
+    container_name: barberia-db
+    environment:
+      POSTGRES_USER: barberia_user
+      POSTGRES_PASSWORD: barberia_pass
+      POSTGRES_DB: barberia_db
+    ports:
+      - "1234:5432"
+    volumes:
+      - barberia-data:/var/lib/postgresql/data
+
+volumes:
+  barberia-data:
